@@ -155,7 +155,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Plus, ZoomIn, ZoomOut } from "lucide-react"
+
 
 export default function EstimateForm() {
   const [estimates, setEstimates] = useState([
@@ -222,15 +222,15 @@ export default function EstimateForm() {
     })
     setEstimates(updated)
   }
-  const addRow = (type, ei, ti) => {
+  const addRow = (type: "subcontractors" | "labour" | "material", ei: number, ti: number) => {
     const updated = [...estimates]
-    updated[ei].tasks[ti][type].push(
-      type === "subcontractors"
-        ? { name: "", unit: "", cost: "", tax: "", buffer: "", markup: "" }
-        : type === "labour"
-        ? { hours: "", guys: "", entry: "", markup: "" }
-        : { unit: "", guys: "", tax: "", delivery: "" }
-    )
+    if (type === "subcontractors") {
+      updated[ei].tasks[ti].subcontractors.push({ name: "", unit: "", cost: "", tax: "", buffer: "", markup: "" })
+    } else if (type === "labour") {
+      updated[ei].tasks[ti].labour.push({ hours: "", guys: "", entry: "", markup: "" })
+    } else {
+      updated[ei].tasks[ti].material.push({ unit: "", guys: "", tax: "", delivery: "" })
+    }
     setEstimates(updated)
   }
 
@@ -311,15 +311,14 @@ export default function EstimateForm() {
                           <td key={key}>
                             <input
                               className="border p-1 w-full"
-                              value={row[key]}
+                              value={row[key as keyof typeof row]}
                               onChange={(e) => {
                                 const updated = [...estimates]
                                 updated[ei].tasks[ti].labour[ri][key as keyof typeof row] = e.target.value
                                 setEstimates(updated)
                               }}                            />
                           </td>
-                        ))}
-                      </tr>
+                        ))}                      </tr>
                     ))}
                   </tbody>
                 </table>
@@ -376,5 +375,4 @@ export default function EstimateForm() {
         </button>
       </div>
     </div>
-  )
-}
+  )}
