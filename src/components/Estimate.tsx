@@ -231,14 +231,14 @@ return (
       ))}
 
       <div className="text-center">
-        <button onClick={addEstimate} className="bg-black text-white px-6 py-2 rounded">
+        <button onClick={addEstimate} className="bg-black text-black px-6 py-2 rounded">
           + Add Another Estimate
         </button>
       </div>
       <div className="text-center mt-4">
   <button
     onClick={handleSubmit}
-    className="bg-green-600 text-white px-6 py-2 rounded"
+    className="bg-green-600 text-black px-6 py-2 rounded"
   >
     Submit
   </button>
