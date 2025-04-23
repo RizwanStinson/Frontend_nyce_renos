@@ -1,9 +1,9 @@
-import EstimateForm from "../src/components/estimate-form"
+import Estimate from "./components/Estimate"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-100">
-      <EstimateForm />
+      <Estimate />
     </main>
   )
 }
