@@ -88,6 +88,7 @@ const addEstimate = () => {
 
   const handleSubmit = async () => {
   try {
+    console.log("Check it now:", estimates);
     const result = await postEstimates(estimates);
     console.log("Submitted successfully:", result);
   } catch (error) {
