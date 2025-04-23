@@ -91,7 +91,7 @@ const addEstimate = () => {
     const result = await postEstimates(estimates);
     console.log("Submitted successfully:", result);
   } catch (error) {
-    alert("Failed to submit estimates. Check console for details.");
+    console.log("Error submitting estimates:", error);
   }
 };
 
