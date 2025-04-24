@@ -1,8 +1,7 @@
-// services/estimateService.ts
 import axios from "axios";
 import { IEstimate } from "../interfaces/types";
 
-const API_URL = "https://nyce-renos.onrender.com/estimates/post"; // Change to your backend endpoint
+const API_URL = "https://nyce-renos.onrender.com/estimates/post"; 
 
 export const postEstimates = async (data: IEstimate[]) => {
   try {
