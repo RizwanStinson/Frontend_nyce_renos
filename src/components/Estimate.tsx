@@ -89,7 +89,7 @@ const addEstimate = () => {
 const handleSubmit = async () => {
   try {
     if (estimates.length > 0) {
-      const result = await postEstimates(estimates[0]); // ✅ Send as object
+      const result = await postEstimates(estimates[0]); 
       console.log("Submitted successfully:", result);
     } else {
       console.warn("No estimates to submit!");

@@ -3,7 +3,7 @@ import { IEstimate } from "../interfaces/types";
 
 const API_URL = "https://nyce-renos.onrender.com/estimates/post"; 
 
-export const postEstimates = async (data: IEstimate[]) => {
+export const postEstimates = async (data: IEstimate) => {
   try {
     console.log("Sending data:", data);
     const response = await axios.post(API_URL, data);
